@@ -1,5 +1,6 @@
 import React from'react'
-import { FlatList, Keyboard, SafeAreaView,StatusBar,Text } from 'react-native'
+import { FlatList, Keyboard, SafeAreaView,StatusBar,Text } from 'react-native';
+import Item from './Item';
 
 
  const servicos = [
@@ -14,7 +15,7 @@ import { FlatList, Keyboard, SafeAreaView,StatusBar,Text } from 'react-native'
         id:2,
         nome:'Vacina v4',
         preco:159.90,
-        Descricao: 'Vacinamos seu pet para ficar imune a varias doenças tranmitiveis'
+        Descricao: 'Vacinamos seu pet para ficar imune a varias doenças transmisiveis'
 
     },
     {
@@ -31,8 +32,8 @@ export default function Servicos(){
             <Text>Serviços Disponiveis</Text>
             <FlatList
             data = {servicos}
-            renderItem = {({item: {nome}})=> <Text> {nome}</Text>}
-            KeyExtractor = {(id) => String (id)}
+            renderItem = {({ item })=> <Item {...item}/>}
+            KeyExtractor = {({id}) => String (id)}
             />
     
     </SafeAreaView>
