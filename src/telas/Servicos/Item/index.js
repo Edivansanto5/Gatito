@@ -1,6 +1,8 @@
 import React, { useState } from'react';
-import { Text, View ,Button} from 'react-native';
+import { Text, View} from 'react-native';
 import CampoInteiro from '../../../componentes/campoInteiro';
+import Botao from '../../../componentes/Botao';
+
 import estiloItem from './estiloItem';
 
 export default function Item({nome,preco,Descricao}){
@@ -24,7 +26,7 @@ export default function Item({nome,preco,Descricao}){
             </View>  
         </View>
       
-       <Button title='Adcionar'/>
+       <Botao valor='Adcionar' acao = {() => {}}/>
     </View>
     <View style={estiloItem.divisor}></View>
     </>
