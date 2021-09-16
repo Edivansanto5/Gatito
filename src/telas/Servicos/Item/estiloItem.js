@@ -8,7 +8,7 @@ export default StyleSheet.create({
     nome:{
         color:cores.laranja,
         fontWeight:'bold',
-        fontSize:16
+        fontSize:16,
     },
     calculo:{
         color:cores.escuro,
@@ -23,7 +23,7 @@ export default StyleSheet.create({
     },
     divisor:{
         marginHorizontal:24,
-        borderBottomWidth:1,
+        borderBottomWidth:2,
         borderBottomColor:cores.cinza,
     },
     carrinho:{
