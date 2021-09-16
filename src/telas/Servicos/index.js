@@ -29,7 +29,7 @@ import Item from './Item';
 export default function Servicos(){
     return < SafeAreaView >
             <StatusBar/>
-            <Text>Serviços Disponiveis</Text>
+          
             <FlatList
             data = {servicos}
             renderItem = {({ item })=> <Item {...item}/>}
