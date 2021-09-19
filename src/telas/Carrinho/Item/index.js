@@ -1,14 +1,14 @@
 import React, { useState } from'react';
-import { Text, View,TouchableOpacity} from 'react-native';
+import { Text, View,} from 'react-native';
 import CampoInteiro from '../../../componentes/campoInteiro';
 import Botao from '../../../componentes/Botao';
 
 import estiloItem from './estiloItem';
 
-export default function Item({nome,preco,Descricao}){
-    const [Quantidade,setQuantidade] = useState(1)
-    const [total, setTotal] = useState(preco)
-    const [expandir,setExpandir] = useState(false)
+export default function Item({nome,preco,Descricao,quantidade:quantidadeInicial}){
+    const [Quantidade,setQuantidade] = useState(quantidadeInicial)
+    const [total, setTotal] = useState(preco * quantidadeInicial)
+ 
     const atualizarQuantidadeTotal = (novaQuantidade) => {
         setQuantidade(novaQuantidade);
         calcularTotal(novaQuantidade);
@@ -17,18 +17,15 @@ export default function Item({nome,preco,Descricao}){
     const calcularTotal = (novaQuantidade) => {
         setTotal(novaQuantidade * preco)
     }
-    const inverteExpandir = () => {
-        setExpandir(!expandir)
-        atualizarQuantidadeTotal(1)
-    }
+    
     return<>
-    <TouchableOpacity style={estiloItem.informacao} onPress={inverteExpandir}>
+    <View style={estiloItem.informacao}>
         <Text style={estiloItem.nome}> {nome } </Text>
         <Text style={estiloItem.Descricao}> {Descricao }</Text>
         <Text style={estiloItem.preco}>  {Intl.NumberFormat('pt-br',
         {style:'currency',currency:'BRl'}).format(preco)} </Text>
-    </TouchableOpacity>
-    {expandir &&
+    </View>
+    
         <View style={estiloItem.carrinho}>
             <View>
                 <View style={estiloItem.valor}>
@@ -41,9 +38,9 @@ export default function Item({nome,preco,Descricao}){
                     {style:'currency',currency:'BRl'}).format(total)} </Text>
                 </View>  
             </View>
-            <Botao valor='Adcionar' acao = {() => {}}/>
+            <Botao valor='Remover do Carrinho ' acao = {() => {}}/>
         </View>
-    }
+    
     <View style={estiloItem.divisor}></View>
     </>
 
