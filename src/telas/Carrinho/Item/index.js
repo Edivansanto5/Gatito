@@ -14,22 +14,23 @@ export default function Item({nome,preco,Descricao,quantidade:quantidadeInicial}
         calcularTotal(novaQuantidade);
 
     }
-    const calcularTotal = (novaQuantidade) => {
-        setTotal(novaQuantidade * preco)
+    const calcularTotal = (novaQuantidade2) => {
+        setTotal(novaQuantidade2 * preco)
     }
+
     
     return<>
     <View style={estiloItem.informacao}>
         <Text style={estiloItem.nome}> {nome } </Text>
-        <Text style={estiloItem.Descricao}> {Descricao }</Text>
-        <Text style={estiloItem.preco}>  {Intl.NumberFormat('pt-br',
-        {style:'currency',currency:'BRl'}).format(preco)} </Text>
+        <Text style={estiloItem.Descricao}> {Descricao } </Text>
+        <Text style={estiloItem.preco}> Valor/Pets {Intl.NumberFormat('pt-br',
+        {style:'currency',currency:'BRl'}).format(preco)}  </Text>
     </View>
     
         <View style={estiloItem.carrinho}>
             <View>
                 <View style={estiloItem.valor}>
-                    <Text style={estiloItem.Descricao}>Quantidade:</Text>
+                    <Text style={estiloItem.Descricao}>Quantidade de pets:</Text>
                     <CampoInteiro valor ={Quantidade} acao = {atualizarQuantidadeTotal}/>
                 </View>
                 <View style={estiloItem.valor}>

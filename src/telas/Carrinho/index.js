@@ -17,7 +17,7 @@ const servicos = [
         id:2,
         nome:'Vacina v4',
         preco:200,
-        Descricao: 'Vacinamos seu pet para ficar imune a varias doenças transmisiveis',
+        Descricao: 'Vacinamos seu pet para ficar himune a varias doenças transmisiveis',
         quantidade:1,
 
     },
@@ -31,7 +31,8 @@ const servicos = [
     },
 ]
 export default function Carrinho(){
-    const total = servicos.reduce((soma,{preco,quantidade}) => soma + (preco * quantidade),0)
+    const total = servicos.reduce((soma,{preco,quantidade}) => soma + (preco * quantidade ),0)
+  
     return < TelaPadrao >
             <StatusCarrinho total = {total} />
             <FlatList
